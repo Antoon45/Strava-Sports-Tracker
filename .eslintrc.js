@@ -18,7 +18,9 @@ module.exports = {
     'vue/max-attributes-per-line': ['off'],
     'vue/v-on-style': ['off'],
     'vue/v-bind-style': ['off'],
-    'vue/multiline-html-element-content-newline': ['off']
+    'vue/multiline-html-element-content-newline': ['off'],
+    'vue/html-indent': ['off'],
+    'vue/html-self-closing': ['off']
   },
   
 };

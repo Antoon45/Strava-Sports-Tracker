@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <section class="activities">
-      <h1>My activities</h1>
+      <h1>Activities</h1>
+      <activities />
     </section>
     <section class="overview">
       <p>Activity overview</p>
@@ -11,24 +12,28 @@
 
 <script>
 import axios from "axios";
-import {getCookie} from "../helpers.js";
+import activities from "./activities.vue";
+import { getCookie } from "../helpers.js";
 
 export default {
   name: "main_component",
+  components: {
+    activities
+  },
   data: function() {
     return {};
   },
   mounted() {
-    this.getAthleteInformation();
+    this.getAthleteStats();
   },
   methods: {
-    getAthleteInformation() {
-      let access_token = getCookie("access-token");
-      console.log(access_token);
+    getAthleteStats() {
+      const access_token = getCookie("access-token");
+      const athlete_id = getCookie("athlete-id");
       if (access_token != "") {
         axios
           .get(
-            `https://www.strava.com/api/v3/athlete -H "Authorization: Bearer ${access_token}"`
+            `https://www.strava.com/api/v3/athletes/${athlete_id} -H "Authorization: Bearer ${access_token}"`
           )
           .then(response => {
             console.log(response.data);
@@ -47,10 +52,11 @@ export default {
 <style scoped>
 .container {
   display: grid;
-  grid-template-columns: 7fr 3fr;
+  grid-template-columns: 7fr 4fr;
   padding: 5px;
+  height: 100%;
   width: 100%;
   max-width: 1100px;
-  border: 0.5px solid rgba(0, 0, 0, 0.37);
+  background-color: #fff;
 }
 </style>
