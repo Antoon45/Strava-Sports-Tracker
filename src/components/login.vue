@@ -25,10 +25,10 @@ export default {
     };
   },
   mounted() {
-    this.getAthlete();
+    this.getAccessCode();
   },
   methods: {
-    getAthlete() {
+    getAccessCode() {
       if (authorizationCodeFromUrl.code) {
         axios
           .post(
