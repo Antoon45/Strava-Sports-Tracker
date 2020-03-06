@@ -57,7 +57,7 @@ export default {
       document.cookie =
         "access-token" + "=" + access_token + "; expires=" + expires_at;
       document.cookie = "refresh-token" + "=" + refresh_token;
-      document.cookie = "user-id" + "=" + athlete_id;
+      document.cookie = "athlete-id" + "=" + athlete_id;
     }
   }
 };

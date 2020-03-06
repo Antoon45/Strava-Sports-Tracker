@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <section class="activities">
+      <p>{{ athleteInfo.firstname }}</p>
       <h1>Activities</h1>
       <activities />
     </section>
@@ -21,10 +22,14 @@ export default {
     activities
   },
   data: function() {
-    return {};
+    return {
+      athleteInfo: "",
+      athleteStats: ""
+    };
   },
   mounted() {
     this.getAthleteStats();
+    this.getAthleteInfo();
   },
   methods: {
     getAthleteStats() {
@@ -32,11 +37,30 @@ export default {
       const athlete_id = getCookie("athlete-id");
       if (access_token != "") {
         axios
-          .get(
-            `https://www.strava.com/api/v3/athletes/${athlete_id} -H "Authorization: Bearer ${access_token}"`
-          )
+          .get(`https://www.strava.com/api/v3/athletes/${athlete_id}/stats`, {
+            headers: { Authorization: `Bearer ${access_token}` }
+          })
           .then(response => {
-            console.log(response.data);
+            this.athleteStats = response.data;
+            //console.log(response.data);
+          })
+          .catch(error => {
+            this.errored = true;
+            return error;
+          })
+          .finally(() => (this.loading = false));
+      }
+    },
+    getAthleteInfo() {
+      const access_token = getCookie("access-token");
+      const athlete_id = getCookie("athlete-id");
+      if (access_token != "") {
+        axios
+          .get(`https://www.strava.com/api/v3/athlete`, {
+            headers: { Authorization: `Bearer ${access_token}` }
+          })
+          .then(response => {
+            this.athleteInfo = response.data;
           })
           .catch(error => {
             this.errored = true;

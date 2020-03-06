@@ -1,13 +1,17 @@
 <template>
-  <div class="activity-container">
-    <a href="google.com">
-      <h3 class="activity-title">Morning run</h3>
-      <p>
-        <span>3.46km</span>
-        <span>6:20/km</span>
-        <span>21min 59sec</span>
+  <div>
+    <div v-for="activity in activityList" :key="activity" class="activity-container">
+      <h3>{{ activity.name }}</h3>
+      <p v-if="activity.type === 'Run'">
+        <span>{{ Math.round((activity.distance / 1000) * 100) / 100 }} km</span>
+        <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
+        <span>{{ Math.round(Math.pow(activity.average_speed, 2) * 100) / 100 }}/km</span>
       </p>
-    </a>
+      <p v-if="activity.type === 'Workout'">
+        <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
+        <span>{{ activity.calories }}</span>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -17,19 +21,25 @@ import { getCookie } from "../helpers.js";
 
 export default {
   name: "activities",
+  data: function() {
+    return {
+      activityList: ""
+    };
+  },
   mounted() {
     this.getActivities();
   },
   methods: {
     getActivities() {
       const access_token = getCookie("access-token");
+      const athlete_id = getCookie("athlete-id");
       if (access_token != "") {
         axios
-          .get(
-            `https://www.strava.com/api/v3/athlete/activities?before=&after=&page=&per_page=" "Authorization: Bearer ${access_token}"`
-          )
+          .get(`https://www.strava.com/api/v3/athlete/activities`, {
+            headers: { Authorization: `Bearer ${access_token}` }
+          })
           .then(response => {
-            console.log(response.data);
+            this.activityList = response.data;
           })
           .catch(error => {
             this.errored = true;
@@ -59,7 +69,7 @@ a {
   color: #2c3e50;
 }
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .activity-title {
   letter-spacing: -0.5px;
