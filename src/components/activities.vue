@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="activities">
     <div v-for="activity in activityList" :key="activity" class="activity-container">
       <h3>{{ activity.name }}</h3>
       <p v-if="activity.type === 'Run'">
@@ -18,6 +18,7 @@
 <script>
 import axios from "axios";
 import { getCookie } from "../helpers.js";
+
 
 export default {
   name: "activities",
@@ -53,9 +54,13 @@ export default {
 </script>
 
 <style scoped>
+#activities {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 90%;
+}
 .activity-container {
-  width: 100%;
-  height: auto;
+  width: 80%;
   padding-left: 5px;
   margin-bottom: 20px;
   border: 1px solid #c1c7d0;

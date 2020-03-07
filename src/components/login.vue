@@ -1,10 +1,12 @@
 <template>
-  <div class="container">
-    <a
-      v-bind:href="`http://www.strava.com/oauth/authorize?client_id=${clientID}&response_type=code&redirect_uri=http://localhost:8080/exchange_token&approval_prompt=force&scope=profile:read_all,activity:read_all`"
-    >
-      <button class="btn">Login with Strava</button>
-    </a>
+  <div class="background-image">
+    <div class="container">
+      <a
+        v-bind:href="`http://www.strava.com/oauth/authorize?client_id=${clientID}&response_type=code&redirect_uri=http://localhost:8080/exchange_token&approval_prompt=force&scope=profile:read_all,activity:read_all`"
+      >
+        <button class="btn">Login with Strava</button>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -64,30 +66,36 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
 .btn {
-  border: 1px solid #fff;
+  border: 1px solid #1f7fbe;
   color: #fff;
   text-align: center;
   line-height: 1.5;
   width: 170px;
-  padding: 10px;
+  padding: 14px;
   transition: all 0.3s;
-  background: transparent;
+  background-color: #1f7fbe;
   cursor: pointer;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  border-radius: 4px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  border-radius: 3px;
   white-space: nowrap;
-  z-index: 1;
-}
-.btn:hover {
-  background: rgba(255, 255, 255, 0.178);
 }
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
+  width: 100%;
+}
+.background-image {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/login_background.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
 </style>

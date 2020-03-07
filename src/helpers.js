@@ -14,7 +14,6 @@ export const getCookie = (cookie_name) => {
     return "";
 }
 /*
-
     <a href="google.com">
       <h3 class="activity-title">Morning run</h3>
       <p>
