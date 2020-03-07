@@ -31,7 +31,7 @@ export default {
 <style scoped>
 .container {
   display: grid;
-  grid-template-columns: 1fr 4fr 4fr;
+  grid-template-columns: 1fr 4fr 3fr;
   height: 100%;
   width: 100%;
   background-color: #f9fafb;
