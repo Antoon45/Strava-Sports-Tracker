@@ -19,7 +19,6 @@
 import axios from "axios";
 import { getCookie } from "../helpers.js";
 
-
 export default {
   name: "activities",
   data: function() {
@@ -58,13 +57,20 @@ export default {
   overflow: scroll;
   overflow-x: hidden;
   height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .activity-container {
-  width: 80%;
-  padding-left: 5px;
+  width: 85%;
+  padding-left: 10px;
   margin-bottom: 20px;
-  border: 1px solid #c1c7d0;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.0625);
   border-radius: 3px;
+}
+h3 {
+  font-weight: 600;
 }
 span {
   padding: 0px 5px 0px 5px;

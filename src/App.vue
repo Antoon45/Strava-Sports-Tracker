@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');
 
 html,
 body {
@@ -48,10 +48,10 @@ body {
 #app {
   display: flex;
   justify-content: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #72777a;
   height: 100%;
   margin-left: auto;
   margin-right: auto;

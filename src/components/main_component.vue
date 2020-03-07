@@ -31,12 +31,16 @@ export default {
 <style scoped>
 .container {
   display: grid;
-  grid-template-columns: 2fr 4fr 4fr;
+  grid-template-columns: 1fr 4fr 4fr;
   height: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: #f9fafb;
 }
 section {
   overflow: hidden;
+}
+.profile {
+    background-color: #fff;
+    border-right: 1px solid rgba(0, 0, 0, 0.0625);
 }
 </style>

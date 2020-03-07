@@ -6,18 +6,20 @@
           src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/47781692/13759841/1/large.jpg "
           alt
         />
+        <h3>
+          <b>
+            {{ athleteInfo.firstname }}
+            {{ athleteInfo.lastname }}
+          </b>
+        </h3>
       </div>
       <div class="profile-info">
-        <h2>
-          {{ athleteInfo.firstname }}
-          {{ athleteInfo.lastname }}
-        </h2>
         <p>Followers: {{ athleteInfo.follower_count }} | Friends: {{ athleteInfo.friend_count }}</p>
         <p>{{ athleteInfo.city }}, {{ athleteInfo.state }}, {{ athleteInfo.country }}</p>
-        <p>Shoes: {{ athleteInfo.shoes[name]}}</p>
+        <p>Shoes: {{ athleteInfo.shoes[{name}] }}</p>
       </div>
     </div>
-    <div class="lower-section"></div>
+    <div class="lower-section">test</div>
   </div>
 </template>
 
@@ -79,26 +81,22 @@ export default {
 };
 </script>
 <style scoped>
-.upper-section {
-  float: left;
+#profile-section {
+  margin: 80px 0 0 0;
   display: flex;
-  margin: 25px 0 0 20px;
-  box-sizing: border-box;
-  width: 100%;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.profile-info {
-  padding-left: 10px;
+
+.profile-info > h3,
+p {
+  margin-bottom: 1px;
 }
-.profile-info > h2 {
-  margin: 0;
-}
-.profile-info > p {
-  margin: 3px 0 3px 0;
-}
+
 img {
   border-radius: 8px;
   width: 80px;
   height: 80px;
 }
-
 </style>

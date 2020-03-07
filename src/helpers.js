@@ -13,13 +13,8 @@ export const getCookie = (cookie_name) => {
     }
     return "";
 }
-/*
-    <a href="google.com">
-      <h3 class="activity-title">Morning run</h3>
-      <p>
-        <span>3.46km</span>
-        <span>6:20/km</span>
-        <span>21min 59sec</span>
-      </p>
-    </a>
-*/
+export const setCookie = (access_token, refresh_token, expires_at, athlete_id) => {
+    document.cookie = "access-token" + "=" + access_token + "; expires=" + expires_at;
+    document.cookie = "refresh-token" + "=" + refresh_token;
+    document.cookie = "athlete-id" + "=" + athlete_id;
+}
