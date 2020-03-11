@@ -8,8 +8,8 @@
 <script>
 import main_component from "./components/main_component.vue";
 import login from "./components/login.vue";
-import normalize from "normalize.css";
 import { getCookie } from "./helpers.js";
+import normalize from "normalize.css";
 
 export default {
   name: "app",
