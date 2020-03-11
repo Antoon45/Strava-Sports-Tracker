@@ -13,8 +13,27 @@ export const getCookie = (cookie_name) => {
     }
     return "";
 }
+
 export const setCookie = (access_token, refresh_token, expires_at, athlete_id) => {
     document.cookie = "access-token" + "=" + access_token + "; expires=" + expires_at;
     document.cookie = "refresh-token" + "=" + refresh_token;
     document.cookie = "athlete-id" + "=" + athlete_id;
+}
+
+export const calcDistance = (distanceInMeters) => { // Converts meters into km
+    if (distanceInMeters !== 0) {
+        console.log(Math.round((distanceInMeters / 1000) * 100) / 100);
+        return Math.round((distanceInMeters / 1000) * 100) / 100
+    } else {
+        distanceInMeters = 0;
+        return distanceInMeters;
+    }
+}
+
+export const calcMinutesPerKilometer = (metersPerSecond) => {
+    if (metersPerSecond !== 0) {
+        console.log(metersPerSecond)
+        let metersPerMinute = metersPerSecond * 60;
+        return metersPerMinute / 1000;
+    }
 }

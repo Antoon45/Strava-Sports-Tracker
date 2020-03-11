@@ -1,23 +1,27 @@
 <template>
-  <div id="activities">
-    <div v-for="activity in activityList" :key="activity" class="activity-container">
-      <h3>{{ activity.name }}</h3>
-      <p v-if="activity.type === 'Run'">
-        <span>{{ Math.round((activity.distance / 1000) * 100) / 100 }} km</span>
-        <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
-        <span>{{ Math.round(Math.pow(activity.average_speed, 2) * 100) / 100 }}/km</span>
-      </p>
-      <p v-if="activity.type === 'Workout'">
-        <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
-        <span>{{ activity.calories }}</span>
-      </p>
+  <div>
+      <div v-for="activity in activityList" :key="activity.id" class="activity-container">
+        <h3>{{ activity.name }}</h3>
+        <p v-if="activity.type === 'Run'">
+          <span>{{ getDistance(activity.distance) }} km</span>
+          <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
+          <span>{{ getSpeedPerKilometer(activity.average_speed) }}/km</span>
+        </p>
+        <p v-if="activity.type === 'Workout'">
+          <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
+          <span>{{ activity.calories }}</span>
+        </p>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import { getCookie } from "../helpers.js";
+import {
+  getCookie,
+  calcDistance,
+  calcMinutesPerKilometer
+} from "../helpers.js";
 
 export default {
   name: "activities",
@@ -30,6 +34,12 @@ export default {
     this.getActivities();
   },
   methods: {
+    getDistance(distance) {
+      return calcDistance(distance);
+    },
+    getSpeedPerKilometer(speedPerKilometer) {
+      return calcMinutesPerKilometer(speedPerKilometer);
+    },
     getActivities() {
       const access_token = getCookie("access-token");
       const athlete_id = getCookie("athlete-id");
@@ -53,16 +63,10 @@ export default {
 </script>
 
 <style scoped>
-#activities {
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+
 .activity-container {
   width: 85%;
+  height: 60%;
   padding-left: 10px;
   margin-bottom: 20px;
   background-color: #fff;

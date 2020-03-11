@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     checkLogin() {
+      this.$forceUpdate();
       const access_token = getCookie("access-token");
       access_token != ""
         ? (this.notLoggedIn = false)
@@ -37,31 +38,25 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
 
-html,
 body {
-  width: 100%;
-  height: 100%;
-}
-
-#app {
-  display: flex;
-  justify-content: center;
-  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #72777a;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 500;
+*, ::after, ::before {
+    box-sizing: border-box;
 }
+* {
+    outline: none;
+}
+#app {
+  color: #12263f;
+  width: 100%;
+}
+
+
+
 </style>

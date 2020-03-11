@@ -81,22 +81,5 @@ export default {
 };
 </script>
 <style scoped>
-#profile-section {
-  margin: 80px 0 0 0;
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
 
-.profile-info > h3,
-p {
-  margin-bottom: 1px;
-}
-
-img {
-  border-radius: 8px;
-  width: 80px;
-  height: 80px;
-}
 </style>

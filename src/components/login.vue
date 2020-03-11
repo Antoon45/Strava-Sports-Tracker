@@ -80,7 +80,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-image: url("../images/login_background.jpg");
   background-position: center; /* Center the image */
