@@ -22,7 +22,6 @@ export const setCookie = (access_token, refresh_token, expires_at, athlete_id) =
 
 export const calcDistance = (distanceInMeters) => { // Converts meters into km
     if (distanceInMeters !== 0) {
-        console.log(Math.round((distanceInMeters / 1000) * 100) / 100);
         return Math.round((distanceInMeters / 1000) * 100) / 100
     } else {
         distanceInMeters = 0;
@@ -32,7 +31,6 @@ export const calcDistance = (distanceInMeters) => { // Converts meters into km
 
 export const calcMinutesPerKilometer = (metersPerSecond) => {
     if (metersPerSecond !== 0) {
-        console.log(metersPerSecond)
         let metersPerMinute = metersPerSecond * 60;
         return metersPerMinute / 1000;
     }

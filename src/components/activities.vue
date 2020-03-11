@@ -1,16 +1,16 @@
 <template>
-  <div>
-      <div v-for="activity in activityList" :key="activity.id" class="activity-container">
-        <h3>{{ activity.name }}</h3>
-        <p v-if="activity.type === 'Run'">
-          <span>{{ getDistance(activity.distance) }} km</span>
-          <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
-          <span>{{ getSpeedPerKilometer(activity.average_speed) }}/km</span>
-        </p>
-        <p v-if="activity.type === 'Workout'">
-          <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
-          <span>{{ activity.calories }}</span>
-        </p>
+  <div class="activity-container">
+    <div v-for="activity in activityList" :key="activity.id" class="activity">
+      <h3>{{ activity.name }}</h3>
+      <p v-if="activity.type === 'Run'">
+        <span>{{ getDistance(activity.distance) }} km</span>
+        <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
+        <span>{{ getSpeedPerKilometer(activity.average_speed) }}/km</span>
+      </p>
+      <p v-if="activity.type === 'Workout'">
+        <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
+        <span>{{ activity.calories }}</span>
+      </p>
     </div>
   </div>
 </template>
@@ -63,15 +63,20 @@ export default {
 </script>
 
 <style scoped>
-
 .activity-container {
-  width: 85%;
-  height: 60%;
-  padding-left: 10px;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+    flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.activity {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  height: auto;
   margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.0625);
-  border-radius: 3px;
+  border: 1px solid #e3ebf6;
 }
 h3 {
   font-weight: 600;
@@ -85,8 +90,5 @@ a {
 }
 a:hover {
   text-decoration: underline;
-}
-.activity-title {
-  letter-spacing: -0.5px;
 }
 </style>

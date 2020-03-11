@@ -6,20 +6,22 @@
           src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/47781692/13759841/1/large.jpg "
           alt
         />
+      </div>
+      <div class="profile-info">
         <h3>
           <b>
             {{ athleteInfo.firstname }}
             {{ athleteInfo.lastname }}
           </b>
         </h3>
-      </div>
-      <div class="profile-info">
-        <p>Followers: {{ athleteInfo.follower_count }} | Friends: {{ athleteInfo.friend_count }}</p>
+        <p>
+          {{ athleteInfo.follower_count }} |
+          {{ athleteInfo.friend_count }}
+        </p>
         <p>{{ athleteInfo.city }}, {{ athleteInfo.state }}, {{ athleteInfo.country }}</p>
         <p>Shoes: {{ athleteInfo.shoes[{name}] }}</p>
       </div>
     </div>
-    <div class="lower-section">test</div>
   </div>
 </template>
 
@@ -81,5 +83,4 @@ export default {
 };
 </script>
 <style scoped>
-
 </style>

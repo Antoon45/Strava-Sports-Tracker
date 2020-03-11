@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="container-wrap">
-      <div class="row page-title">Username</div>
+      <div class="row">
+        <div class="title">Username</div>
+      </div>
       <div class="row">
         <div class="column stats">
           <div class="card">
@@ -33,13 +35,25 @@
         </div>
       </div>
       <div class="row">
-        <div class="column">
+        <div class="column activities">
           <div class="card">
+            <div class="card-body">
+              <div class="d-flex">
+                <h2 class="card-title">
+                  <span class="left-border"></span>
+                  Workouts
+                </h2>
+              </div>
+            </div>
             <activities />
           </div>
         </div>
-        <div class="column">
-          <profile />
+        <div class="column profile">
+          <div class="card">
+            <div class="card-body">
+              <profile />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -66,16 +80,16 @@ export default {
   padding-top: 125px;
   background: #f4f6f9;
   position: relative;
-  padding-bottom: 60px;
   min-height: 1290px;
 }
-.page-title {
+.title {
   margin-bottom: 20px;
-  padding: 0px;
+  padding-left: 15px;
 }
 .activities {
   flex: 0 0 75%;
   max-width: 75%;
+  height: 100%;
 }
 .profile,
 .stats {
@@ -87,6 +101,23 @@ export default {
   max-width: 1280px;
   margin: 0 auto;
   position: relative;
+}
+.d-flex {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.card-title {
+  margin-bottom: 5px;
+  position: relative;
+}
+.left-border {
+  width: 2px;
+  background: var(--primary);
+  height: 30px;
+  margin-left: -20px;
+  margin-right: 18px;
+  display: inline-block;
+  vertical-align: middle;
 }
 .row {
   display: flex;
@@ -110,7 +141,6 @@ export default {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid #edf2f9;
-  box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
 }
 .card-body {
   flex: 1 1 auto;

@@ -38,25 +38,78 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
+@font-face {
+  font-family: "Cerebri Sans";
+  src: url(../fonts/Cerebri-Sans/CerebriSans-Light.eot);
+  src: url(../fonts/Cerebri-Sans/CerebriSans-Light.ttf);
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cerebri Sans";
+  src: url(../fonts/Cerebri-Sans/CerebriSans-Regular.eot);
+  src: url(../fonts/Cerebri-Sans/CerebriSans-Regular.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cerebri Sans";
+  src: url(../fonts/Cerebri-Sans/CerebriSans-Bold.eot);
+  src: url(../fonts/Cerebri-Sans/CerebriSans-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
 
 body {
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+}
+body,
+* {
+  font-family: "Cerebri Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-*, ::after, ::before {
-    box-sizing: border-box;
+*,
+::after,
+::before {
+  box-sizing: border-box;
 }
 * {
-    outline: none;
+  outline: none;
 }
 #app {
-  color: #12263f;
-  width: 100%;
+  color: var(--primary-text);
 }
-
-
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+:root {
+    --blue: #2C7BE5;
+    --indigo: #727cf5;
+    --purple: #6b5eae;
+    --pink: #ff679b;
+    --red: #E63757;
+    --orange: #fd7e14;
+    --yellow: #F6C343;
+    --green: #00D97E;
+    --teal: #02a8b5;
+    --cyan: #39afd1;
+    --white: #FFFFFF;
+    --gray: #95AAC9;
+    --gray-dark: #3B506C;
+    --primary: #2C7BE5;
+    --secondary: #6E84A3;
+    --success: #00D97E;
+    --info: #39afd1;
+    --warning: #F6C343;
+    --danger: #E63757;
+    --light: #EDF2F9;
+    --dark: #12263F;
+    --primary-text: #12263f;
+    --font-family-sans-serif: "Cerebri Sans",sans-serif;
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
 
 </style>
