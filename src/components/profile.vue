@@ -1,26 +1,20 @@
 <template>
-  <div id="profile-section">
-    <div class="upper-section">
-      <div class="profile-image">
-        <img
-          src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/47781692/13759841/1/large.jpg "
-          alt
-        />
-      </div>
-      <div class="profile-info">
-        <h3>
-          <b>
-            {{ athleteInfo.firstname }}
-            {{ athleteInfo.lastname }}
-          </b>
-        </h3>
-        <p>
-          {{ athleteInfo.follower_count }} |
-          {{ athleteInfo.friend_count }}
-        </p>
-        <p>{{ athleteInfo.city }}, {{ athleteInfo.state }}, {{ athleteInfo.country }}</p>
-        <p>Shoes: {{ athleteInfo.shoes[{name}] }}</p>
-      </div>
+  <div class="upper-section">
+
+      <img :src="athleteInfo.profile" alt="profile_picture" />
+    <h2 class="card-title">
+      <span class="left-border"></span>
+      {{ athleteInfo.firstname }}
+      {{ athleteInfo.lastname }}
+    </h2>
+    <div class="profile-information">
+      <p>
+        {{ athleteInfo.follower_count }} |
+        {{ athleteInfo.friend_count }}
+      </p>
+      <p>{{ athleteInfo.city }}, {{ athleteInfo.state }}, {{ athleteInfo.country }}</p>
+      <p>Shoes: {{ athleteInfo.shoes[0] ? athleteInfo.shoes[0].name : 'No shoes' }}</p>
+      <p>Weight: {{ athleteInfo.weight }}</p>
     </div>
   </div>
 </template>
@@ -83,4 +77,6 @@ export default {
 };
 </script>
 <style scoped>
+
+
 </style>

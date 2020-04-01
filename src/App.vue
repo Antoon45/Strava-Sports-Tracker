@@ -27,11 +27,8 @@ export default {
   },
   methods: {
     checkLogin() {
-      this.$forceUpdate();
       const access_token = getCookie("access-token");
-      access_token != ""
-        ? (this.notLoggedIn = false)
-        : (this.notLoggedIn = true);
+      access_token != "" ? (this.notLoggedIn = false) : (this.notLoggedIn = true);
     }
   }
 };
@@ -82,34 +79,37 @@ body,
 #app {
   color: var(--primary-text);
 }
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
 }
 :root {
-    --blue: #2C7BE5;
-    --indigo: #727cf5;
-    --purple: #6b5eae;
-    --pink: #ff679b;
-    --red: #E63757;
-    --orange: #fd7e14;
-    --yellow: #F6C343;
-    --green: #00D97E;
-    --teal: #02a8b5;
-    --cyan: #39afd1;
-    --white: #FFFFFF;
-    --gray: #95AAC9;
-    --gray-dark: #3B506C;
-    --primary: #2C7BE5;
-    --secondary: #6E84A3;
-    --success: #00D97E;
-    --info: #39afd1;
-    --warning: #F6C343;
-    --danger: #E63757;
-    --light: #EDF2F9;
-    --dark: #12263F;
-    --primary-text: #12263f;
-    --font-family-sans-serif: "Cerebri Sans",sans-serif;
-    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  --blue: #2c7be5;
+  --indigo: #727cf5;
+  --purple: #6b5eae;
+  --pink: #ff679b;
+  --red: #e63757;
+  --orange: #fd7e14;
+  --yellow: #f6c343;
+  --green: #00d97e;
+  --teal: #02a8b5;
+  --cyan: #39afd1;
+  --white: #ffffff;
+  --gray: #95aac9;
+  --gray-dark: #3b506c;
+  --primary: #2c7be5;
+  --secondary: #6e84a3;
+  --success: #00d97e;
+  --info: #39afd1;
+  --warning: #f6c343;
+  --danger: #e63757;
+  --light: #edf2f9;
+  --dark: #12263f;
+  --primary-text: #12263f;
+  --font-family-sans-serif: "Cerebri Sans", sans-serif;
 }
-
 </style>

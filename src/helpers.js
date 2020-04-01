@@ -22,16 +22,15 @@ export const setCookie = (access_token, refresh_token, expires_at, athlete_id) =
 
 export const calcDistance = (distanceInMeters) => { // Converts meters into km
     if (distanceInMeters !== 0) {
-        return Math.round((distanceInMeters / 1000) * 100) / 100
+        return (((distanceInMeters / 1000) * 100) / 100).toFixed(2);
     } else {
         distanceInMeters = 0;
         return distanceInMeters;
     }
 }
 
-export const calcMinutesPerKilometer = (metersPerSecond) => {
-    if (metersPerSecond !== 0) {
-        let metersPerMinute = metersPerSecond * 60;
-        return metersPerMinute / 1000;
-    }
+export const calcMinutesPerKilometer = (time, distance) => {
+    console.log(time, distance)
+    let minutesPerKilometer = (time / 60) / (distance / 1000);
+    return (minutesPerKilometer).toFixed(2);
 }

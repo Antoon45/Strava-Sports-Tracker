@@ -8,28 +8,28 @@
         <div class="column stats">
           <div class="card">
             <div class="card-body">
-              <div class="flex">test</div>
+              <div class="flex">Total distance covered: </div>
             </div>
           </div>
         </div>
         <div class="column stats">
           <div class="card">
             <div class="card-body">
-              <div class="flex">test</div>
+              <div class="flex">Total biking distance: </div>
             </div>
           </div>
         </div>
         <div class="column stats">
           <div class="card">
             <div class="card-body">
-              <div class="flex">test</div>
+              <div class="flex">Total running distance: </div>
             </div>
           </div>
         </div>
         <div class="column stats">
           <div class="card">
             <div class="card-body">
-              <div class="flex">test</div>
+              <div class="flex">Total swimming distance: </div>
             </div>
           </div>
         </div>
@@ -108,6 +108,7 @@ export default {
 }
 .card-title {
   margin-bottom: 5px;
+  margin-top: 5px;
   position: relative;
 }
 .left-border {
@@ -115,7 +116,7 @@ export default {
   background: var(--primary);
   height: 30px;
   margin-left: -20px;
-  margin-right: 18px;
+  margin-right: 12px;
   display: inline-block;
   vertical-align: middle;
 }

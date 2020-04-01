@@ -1,10 +1,10 @@
 <template>
   <div class="image-container">
-      <a
-        v-bind:href="`http://www.strava.com/oauth/authorize?client_id=${clientID}&response_type=code&redirect_uri=http://localhost:8080/exchange_token&approval_prompt=force&scope=profile:read_all,activity:read_all`"
-      >
-        <button class="btn">Login with Strava</button>
-      </a>
+    <a
+      v-bind:href="`http://www.strava.com/oauth/authorize?client_id=${clientID}&response_type=code&redirect_uri=http://localhost:8080/exchange_token&approval_prompt=force&scope=profile:read_all,activity:read_all`"
+    >
+      <button class="btn">Login with Strava</button>
+    </a>
   </div>
 </template>
 
@@ -45,6 +45,7 @@ export default {
               response.data.expires_at,
               response.data.athlete.id
             );
+            window.location.href = "/";
           })
           .catch(error => {
             this.errored = true;
@@ -52,14 +53,13 @@ export default {
           })
           .finally(() => (this.loading = false));
       }
-    },
-
+    }
   }
 };
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
 
 .btn {
   border: 1px solid #f52443;
@@ -71,7 +71,7 @@ export default {
   transition: all 0.3s;
   background-color: #f52443;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   border-radius: 3px;
   white-space: nowrap;

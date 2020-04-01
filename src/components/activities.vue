@@ -5,12 +5,15 @@
       <p v-if="activity.type === 'Run'">
         <span>{{ getDistance(activity.distance) }} km</span>
         <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
-        <span>{{ getSpeedPerKilometer(activity.average_speed) }}/km</span>
+        <span>{{ getSpeedPerKilometer(activity.moving_time, activity.distance) }}/km</span>
+        <span>Average {{ activity.average_heartrate }}bpm</span>
       </p>
       <p v-if="activity.type === 'Workout'">
         <span>{{ Math.floor(activity.elapsed_time / 60) }}min</span>
-        <span>{{ activity.calories }}</span>
+        <span>Max {{ activity.max_heartrate }}bpm</span>
+        <span>Average {{ activity.average_heartrate }}bpm</span>
       </p>
+      <textarea id="test" cols="30" rows="10" v-html="JSON.stringify(activity, null, 2)"></textarea>
     </div>
   </div>
 </template>
@@ -37,8 +40,8 @@ export default {
     getDistance(distance) {
       return calcDistance(distance);
     },
-    getSpeedPerKilometer(speedPerKilometer) {
-      return calcMinutesPerKilometer(speedPerKilometer);
+    getSpeedPerKilometer(time, distance) {
+      return calcMinutesPerKilometer(time, distance);
     },
     getActivities() {
       const access_token = getCookie("access-token");
@@ -66,8 +69,8 @@ export default {
 .activity-container {
   overflow: scroll;
   overflow-x: hidden;
-  height: 100vh;
-    flex: 1 1 auto;
+  height: 60vh;
+  flex: 1 1 auto;
   padding: 1.25rem;
 }
 
@@ -83,6 +86,14 @@ h3 {
 }
 span {
   padding: 0px 5px 0px 5px;
+}
+span:first-child {
+    border-right: 1px solid gray;
+
+}
+span:last-child {
+    border-left: 1px solid gray;
+
 }
 a {
   text-decoration: none;
